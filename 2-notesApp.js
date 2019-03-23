@@ -15,10 +15,14 @@ app.use(bodyParser.json());
 
 // register route handlers
 app.post('/notes', function (req, res) {
-  // add code here
+  notes.push({
+    title: req.body.title,
+    message: req.body.message
+  });
+  res.end()
 });
 app.get('/notes', function (req, res) {
-  // add code here
+  res.json(notes);
 });
 
 // start listening for incoming connections
